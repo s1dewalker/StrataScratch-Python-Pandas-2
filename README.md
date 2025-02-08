@@ -62,3 +62,17 @@ final_df[(final_df['value'] == final_df['value'].max())][['candidate']]
 Notes: we need to calculate the vote value for each voter. <br/>
 We can do this by applying a lambda function to the 'voter' column. The lambda function divides 1 by the total number of times the voter appears in the DataFrame
 <br/>
+
+## [Flags per Video](https://platform.stratascratch.com/coding/2102-flags-per-video?code_type=2)
+
+```python
+# Combine first and last names, fill missing values with empty strings
+user_flags['full_name'] = user_flags['user_firstname'].fillna('') + ' ' + user_flags['user_lastname'].fillna('')
+
+reqd_df = user_flags.drop(columns = ['user_firstname', 'user_lastname'])
+
+reqd_df = reqd_df.dropna(subset = 'flag_id')
+
+reqd_df.groupby(['video_id'], as_index = False).agg(num_unique_users = ('full_name', 'nunique'))
+```
+<br/>

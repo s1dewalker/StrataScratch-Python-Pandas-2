@@ -107,3 +107,14 @@ sat_scores[sat_scores['sat_writing'] == sat_w_median][['student_id']]
 ```
 
 <br/>
+
+## [Find the top 10 ranked songs in 2010](https://platform.stratascratch.com/coding/9650-find-the-top-10-ranked-songs-in-2010?code_type=2)
+
+```python
+reqd_df = billboard_top_100_year_end[(billboard_top_100_year_end['year'] == 2010) & (billboard_top_100_year_end['year_rank']<=10)] 
+
+# To not show the same song twice.
+reqd_df[['year_rank', 'group_name', 'song_name']].drop_duplicates(subset = 'song_name').sort_values('year_rank')
+```
+Notes: To not show the same song twice: `.drop_duplicates(subset = 'song_name')`
+<br/>

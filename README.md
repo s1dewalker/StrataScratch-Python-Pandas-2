@@ -213,7 +213,6 @@ joined_df = employee.merge(employee, left_on ='manager_id', right_on = 'id', suf
 
 result = joined_df[joined_df['salary'] > joined_df['salary_mgr']][['first_name', 'salary']]
 ```
-<br/>
 
 Notes: <br/>
 This joins: <br/>
@@ -223,3 +222,15 @@ With their manager (right table) <br/>
 Using:<br/>
 left_on="manager_id" → The employee's manager_id<br/>
 right_on="id" → The manager's id<br/>
+<br/>
+
+## [Highest Salary In Department](https://platform.stratascratch.com/coding/9897-highest-salary-in-department?code_type=2)
+
+```python
+max_sal_dep = employee.groupby(['department'], as_index = False).agg(max_sal = ('salary', 'max'))
+
+merged_df = employee.merge(max_sal_dep, left_on = ['department', 'salary'], right_on = ['department', 'max_sal'])
+
+merged_df[['department', 'first_name', 'salary']]
+```
+<br/>

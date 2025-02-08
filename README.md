@@ -90,9 +90,10 @@ reqd_df = reqd_df.dropna(subset = 'flag_id')
 
 reqd_df2 = reqd_df[['full_name', 'video_id']].sort_values('full_name')
 
+# To get unique counts of 'video_id' per user
 final_df = reqd_df2.groupby('full_name', as_index = False).agg(unique_vid = ('video_id', 'nunique'))
 
 final_df[final_df['unique_vid'] == final_df['unique_vid'].max()][['full_name']]
 ```
-Notes: Elegant coding
+Notes: Elegant coding. To get unique counts of 'video_id' per user: `.groupby('full_name')` + `.agg(unique_vid = ('video_id', 'nunique'))`
 <br/>

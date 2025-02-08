@@ -268,3 +268,13 @@ ath = olympics_athletes_events.groupby('games', as_index = False).agg(athletes_c
 ath[ath['athletes_count'] == ath['athletes_count'].max()]
 ```
 <br/>
+
+## [Ranking Most Active Guests](https://platform.stratascratch.com/coding/10159-ranking-most-active-guests?code_type=2)
+
+```python
+sum_mssgs = airbnb_contacts.groupby('id_guest', as_index = False).agg(sum_n_messages = ('n_messages', 'sum'))
+
+sum_mssgs['ranking'] = sum_mssgs['sum_n_messages'].rank(method = 'dense', ascending = False)
+sum_mssgs.sort_values('ranking')[['ranking', 'id_guest', 'sum_n_messages']]
+```
+<br/>

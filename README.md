@@ -183,3 +183,17 @@ rev_df = reqd_df.groupby('cust_id', as_index = False).agg(revenue = ('total_orde
 rev_df.sort_values('revenue', ascending = False)
 ```
 <br/>
+
+## [Titanic Survivors and Non-Survivors](https://platform.stratascratch.com/coding/9881-Titanic-Survivors-and-Non--Survivors?code_type=2)
+
+```python
+grouped_df = titanic.groupby(['survived','pclass'], as_index = False).size()
+
+pivot_df = grouped_df.pivot_table(index = 'survived', columns = 'pclass', aggfunc = 'sum').reset_index()
+
+# Directly modify column names
+pivot_df.columns = ['survived', 'first_class', 'second_class', 'third_class']
+
+pivot_df
+```
+<br/>

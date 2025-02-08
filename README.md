@@ -259,3 +259,12 @@ c = joined_df['max_cost'] == joined_df['max_cost'].max()
 joined_df[c][['first_name', 'order_date', 'max_cost']]
 ```
 <br/>
+
+## [Largest Olympics](https://platform.stratascratch.com/coding/9942-largest-olympics?code_type=2)
+
+```python
+ath = olympics_athletes_events.groupby('games', as_index = False).agg(athletes_count = ('name', 'nunique'))
+
+ath[ath['athletes_count'] == ath['athletes_count'].max()]
+```
+<br/>

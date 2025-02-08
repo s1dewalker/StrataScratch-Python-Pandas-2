@@ -295,3 +295,13 @@ joined_df['net_new_products'] = joined_df['product_name_20'] - joined_df['produc
 joined_df[['company_name', 'net_new_products']]
 ```
 <br/>
+
+## [Activity Rank](https://platform.stratascratch.com/coding/10351-activity-rank?code_type=2)
+
+```python
+grouped_df = google_gmail_emails.groupby('from_user', as_index = False).size()
+
+grouped_df['rank'] = grouped_df['size'].rank(method = 'first', ascending = False)
+grouped_df.sort_values('rank')
+```
+<br/>

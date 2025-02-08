@@ -215,7 +215,7 @@ result = joined_df[joined_df['salary'] > joined_df['salary_mgr']][['first_name',
 ```
 <br/>
 
-Notes: 
+Notes: <br/>
 This joins: <br/>
 Each employee (left table) <br/>
 With their manager (right table) <br/>

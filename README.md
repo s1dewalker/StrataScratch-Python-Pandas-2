@@ -30,3 +30,4 @@ s_o = grouped_df[grouped_df['status'] == 'open'].sum().values[1]
 round(s_o/t,1)
 ```
 <br/>
+Notes: `.values[1]` to get the values

@@ -205,3 +205,21 @@ employee['rank'] = employee['salary'].rank(method = 'dense', ascending = False)
 employee[employee['rank'] == 2][['salary']].drop_duplicates()
 ```
 <br/>
+
+## [Employee and Manager Salaries](https://platform.stratascratch.com/coding/9894-employee-and-manager-salaries?code_type=2)
+
+```python
+joined_df = employee.merge(employee, left_on ='manager_id', right_on = 'id', suffixes = ("", "_mgr"))
+
+result = joined_df[joined_df['salary'] > joined_df['salary_mgr']][['first_name', 'salary']]
+```
+<br/>
+
+Notes: 
+This joins: <br/>
+Each employee (left table) <br/>
+With their manager (right table) <br/>
+
+Using:<br/>
+left_on="manager_id" → The employee's manager_id<br/>
+right_on="id" → The manager's id<br/>

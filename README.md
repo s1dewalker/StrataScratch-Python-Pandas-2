@@ -309,7 +309,9 @@ grouped_df.sort_values('rank')
 ## [Highest Energy Consumption](https://platform.stratascratch.com/coding/10064-highest-energy-consumption?code_type=2)
 
 ```python
-full_df = fb_eu_energy.merge(fb_asia_energy, how = "outer", on = 'date', suffixes = ("_eu","_asia")).merge(fb_na_energy, how = "outer" , on ="date", suffixes = ('_na')).fillna(0)
+# Joining more than 2 tables:
+full_df = fb_eu_energy.merge(fb_asia_energy, how = "outer", on = 'date', suffixes = ("_eu","_asia"))\
+.merge(fb_na_energy, how = "outer" , on ="date", suffixes = ('_na')).fillna(0)
 
 full_df['consumption_'] = full_df['consumption_eu'] + full_df['consumption_asia'] + full_df['consumption']
 

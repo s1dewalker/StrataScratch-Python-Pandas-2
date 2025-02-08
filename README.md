@@ -279,3 +279,19 @@ sum_mssgs['ranking'] = sum_mssgs['sum_n_messages'].rank(method = 'dense', ascend
 sum_mssgs.sort_values('ranking')[['ranking', 'id_guest', 'sum_n_messages']]
 ```
 <br/>
+
+## [New Products](https://platform.stratascratch.com/coding/10318-new-products?code_type=2)
+
+```python
+car_launches_2019 = car_launches[car_launches['year'] == 2019]
+car_launches_2020 = car_launches[car_launches['year'] == 2020]
+
+grouped_df1 = car_launches_2019.groupby('company_name', as_index = False)['product_name'].nunique()
+grouped_df2 = car_launches_2020.groupby('company_name', as_index = False)['product_name'].nunique()
+
+joined_df = grouped_df1.merge(grouped_df2, how = 'left', on = 'company_name', suffixes = ('_19','_20'))
+
+joined_df['net_new_products'] = joined_df['product_name_20'] - joined_df['product_name_19']
+joined_df[['company_name', 'net_new_products']]
+```
+<br/>

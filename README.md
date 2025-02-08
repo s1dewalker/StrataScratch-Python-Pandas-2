@@ -118,3 +118,29 @@ reqd_df[['year_rank', 'group_name', 'song_name']].drop_duplicates(subset = 'song
 ```
 Notes: To not show the same song twice: `.drop_duplicates(subset = 'song_name')`
 <br/>
+
+## [Classify Business Type](https://platform.stratascratch.com/coding/9726-classify-business-type?code_type=2)
+
+```python
+df = sf_restaurant_health_violations.copy()
+
+def classify(name):
+    name_l = name.lower()
+    if 'restaurant' in name_l:
+        return 'restaurant'
+    elif 'cafe' in name_l or 'café' in name_l or 'café' in name_l or 'coffee' in name_l:
+        return 'cafe'
+    elif 'school' in name_l:
+        return 'school'
+    else:
+        return 'other'
+        
+
+df['business_type'] = df['business_name'].apply(classify)
+
+# Remove any duplicate entries so that each unique business name appears only once in the final output.
+df = df.drop_duplicates(subset = 'business_name')
+
+df[['business_name','business_type']]
+```
+<br/>

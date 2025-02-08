@@ -77,3 +77,22 @@ reqd_df.groupby(['video_id'], as_index = False).agg(num_unique_users = ('full_na
 ```
 Notes: Elegant coding
 <br/>
+
+## [User with Most Approved Flags](https://platform.stratascratch.com/coding/2104-user-with-most-approved-flags?code_type=2)
+
+```python
+# Combine first and last names, fill missing values with empty strings
+user_flags['full_name'] = user_flags['user_firstname'].fillna('') + ' ' + user_flags['user_lastname'].fillna('')
+
+reqd_df = user_flags.drop(columns = ['user_firstname', 'user_lastname'])
+
+reqd_df = reqd_df.dropna(subset = 'flag_id')
+
+reqd_df2 = reqd_df[['full_name', 'video_id']].sort_values('full_name')
+
+final_df = reqd_df2.groupby('full_name', as_index = False).agg(unique_vid = ('video_id', 'nunique'))
+
+final_df[final_df['unique_vid'] == final_df['unique_vid'].max()][['full_name']]
+```
+Notes: Elegant coding
+<br/>

@@ -44,4 +44,4 @@ grouped_df['percentage'] = (grouped_df['size'] / grouped_df['size'].sum())
 
 grouped_df[grouped_df['status'] == 'open'][['percentage']]
 ```
-
+Notes: `grouped_df['size'] / grouped_df['size'].sum()` for percentage calculation

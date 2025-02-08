@@ -172,3 +172,14 @@ result = facebook_complaints[['type', 'processed_rate']].drop_duplicates()
 Notes: **`transform` is `apply` for grouped df.** <br/>
 `transform`: Applies a function to each group and returns a result with the same shape as the original group.<br/>
 Elegant coding. <br/>
+
+## [Customer Revenue In March](https://platform.stratascratch.com/coding/9782-customer-revenue-in-march?code_type=2)
+
+```python
+reqd_df = orders[(orders['order_date'].dt.year == 2019) & (orders['order_date'].dt.month == 3)]
+
+rev_df = reqd_df.groupby('cust_id', as_index = False).agg(revenue = ('total_order_cost', 'sum'))
+
+rev_df.sort_values('revenue', ascending = False)
+```
+<br/>

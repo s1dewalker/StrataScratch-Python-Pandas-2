@@ -182,6 +182,7 @@ rev_df = reqd_df.groupby('cust_id', as_index = False).agg(revenue = ('total_orde
 
 rev_df.sort_values('revenue', ascending = False)
 ```
+Notes: For difference in dates, use **.dt.days** on the difference: `(df['end_time'] - df['start_time']).dt.days`
 <br/>
 
 ## [Titanic Survivors and Non-Survivors](https://platform.stratascratch.com/coding/9881-Titanic-Survivors-and-Non--Survivors?code_type=2)

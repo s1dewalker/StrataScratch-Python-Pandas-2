@@ -144,3 +144,30 @@ df = df.drop_duplicates(subset = 'business_name')
 df[['business_name','business_type']]
 ```
 <br/>
+
+## [Processed Ticket Rate By Type](https://platform.stratascratch.com/coding/9781-find-the-rate-of-processed-tickets-for-each-type?code_type=2)
+First Attempt:
+```python
+total = facebook_complaints.groupby('type', as_index = False).agg(total = ('processed', 'size'))
+t = facebook_complaints[facebook_complaints['processed'] == True].groupby('type', as_index = False).agg(true = ('processed', 'size'))
+
+grouped_df = pd.merge(total, t, on = 'type')
+
+grouped_df['processed_rate'] = grouped_df['true'] / grouped_df['total']
+
+grouped_df[['type','processed_rate']]
+```
+<br/>
+
+After Refinements:
+```python
+facebook_complaints['processed_rate'] = facebook_complaints.groupby('type')['processed']\
+.transform(lambda x: x.sum() / len(x))
+
+# Remove duplicate rows for unique types
+result = facebook_complaints[['type', 'processed_rate']].drop_duplicates()
+```
+<br/>
+
+Notes: `transform` is `apply` for grouped df.<br/>
+Applies a function to each group and returns a result with the same shape as the original group.<br/>

@@ -171,3 +171,4 @@ result = facebook_complaints[['type', 'processed_rate']].drop_duplicates()
 
 Notes: `transform` is `apply` for grouped df.<br/>
 Applies a function to each group and returns a result with the same shape as the original group.<br/>
+Elegant coding. <br/>

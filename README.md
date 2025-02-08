@@ -97,3 +97,13 @@ final_df[final_df['unique_vid'] == final_df['unique_vid'].max()][['full_name']]
 ```
 Notes: Elegant coding. To get unique counts of 'video_id' per user: `.groupby('full_name')` + `.agg(unique_vid = ('video_id', 'nunique'))`
 <br/>
+
+## [Find Students At Median Writing](https://platform.stratascratch.com/coding/9610-find-students-with-a-median-writing-score?code_type=2)
+
+```python
+sat_w_median = sat_scores['sat_writing'].median()
+
+sat_scores[sat_scores['sat_writing'] == sat_w_median][['student_id']]
+```
+
+<br/>

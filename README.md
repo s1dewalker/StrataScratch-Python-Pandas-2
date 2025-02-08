@@ -243,3 +243,19 @@ n_of_orders = orders.groupby('cust_id', as_index = False).agg(total_orders = ('t
 n_of_orders[n_of_orders['total_orders'] == n_of_orders['total_orders'].max()][['cust_id', 'total_orders']]
 ```
 <br/>
+
+## [Highest Cost Orders](https://platform.stratascratch.com/coding/9915-highest-cost-orders?code_type=2)
+
+```python
+reqd_o = orders[orders['order_date'].between('2019-02-01','2019-05-01')]
+
+agg_df = reqd_o.groupby(['cust_id','order_date'], as_index = False)\
+.agg(max_cost = ('total_order_cost', 'sum'), counts = ('cust_id','count'))
+
+joined_df = pd.merge(agg_df, customers, how = 'left', left_on = 'cust_id', right_on = 'id')
+
+c = joined_df['max_cost'] == joined_df['max_cost'].max()
+
+joined_df[c][['first_name', 'order_date', 'max_cost']]
+```
+<br/>

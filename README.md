@@ -7,7 +7,6 @@
 
 ## [Number Of Units Per Nationality](https://platform.stratascratch.com/coding/10156-number-of-units-per-nationality?code_type=2)
 
-First attempt:
 ```python
 joined_df = pd.merge(airbnb_units, airbnb_hosts, how = 'left', on = 'host_id' )
 
@@ -19,3 +18,15 @@ filtered_df[['country', 'unit_id']]
 ```
 <br/>
 Notes: We can filter the merged dataframe to include only rows where the age is less than 30 and the unit_type is 'Apartment'. Finally, we can group the filtered dataframe by nationality and count the unique unit_ids.
+
+## [Share of Active Users](https://platform.stratascratch.com/coding/2005-share-of-active-users?code_type=2)
+
+```python
+c = fb_active_users['country'] == 'USA'
+grouped_df = fb_active_users[c].groupby('status', as_index = False).size()
+
+t = grouped_df.sum().values[1]
+s_o = grouped_df[grouped_df['status'] == 'open'].sum().values[1]
+round(s_o/t,1)
+```
+<br/>

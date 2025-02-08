@@ -320,3 +320,16 @@ reqd_df = full_df[['date','consumption_']].rename(columns = {'consumption_':'con
 reqd_df[reqd_df['consumption'] == reqd_df['consumption'].max()]
 ```
 <br/>
+
+## [Find the percentage of shipable orders](https://platform.stratascratch.com/coding/10090-find-the-percentage-of-shipable-orders?code_type=2)
+
+```python
+shipable_cust = customers.dropna(subset = 'address')
+
+ids_shipable = shipable_cust['id']
+
+shipable_orders = orders[orders['cust_id'].isin(ids_shipable)]
+
+pct_shipable_orders = shipable_orders.shape[0] * 100 / orders.shape[0]
+```
+<br/>

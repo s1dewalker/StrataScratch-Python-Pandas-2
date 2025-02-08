@@ -202,6 +202,6 @@ pivot_df
 
 ```python
 employee['rank'] = employee['salary'].rank(method = 'dense', ascending = False)
-employee[employee['rank'] == 2][['salary']]
+employee[employee['rank'] == 2][['salary']].drop_duplicates()
 ```
 <br/>

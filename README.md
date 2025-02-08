@@ -76,3 +76,5 @@ reqd_df = reqd_df.dropna(subset = 'flag_id')
 reqd_df.groupby(['video_id'], as_index = False).agg(num_unique_users = ('full_name', 'nunique'))
 ```
 <br/>
+
+Notes: Elegant coding

@@ -45,3 +45,20 @@ grouped_df['percentage'] = (grouped_df['size'] / grouped_df['size'].sum())
 grouped_df[grouped_df['status'] == 'open'][['percentage']]
 ```
 Notes: `grouped_df['size'] / grouped_df['size'].sum()` for percentage calculation
+
+## [Election Results](https://platform.stratascratch.com/coding/2099-election-results?code_type=2)
+
+```python
+voting_results = voting_results[~voting_results["candidate"].isna()]
+
+voting_results['value'] = voting_results['voter'].apply(lambda x: 1 / (voting_results["voter"] == x).sum())
+#voting_results
+
+final_df = voting_results.groupby('candidate', as_index = False)['value'].sum()
+
+final_df[(final_df['value'] == final_df['value'].max())][['candidate']]
+```
+
+Notes: we need to calculate the vote value for each voter. <br/>
+We can do this by applying a lambda function to the 'voter' column. The lambda function divides 1 by the total number of times the voter appears in the DataFrame
+<br/>

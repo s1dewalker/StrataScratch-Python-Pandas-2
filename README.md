@@ -333,3 +333,12 @@ shipable_orders = orders[orders['cust_id'].isin(ids_shipable)]
 pct_shipable_orders = shipable_orders.shape[0] * 100 / orders.shape[0]
 ```
 <br/>
+
+## [No Order Customers](https://platform.stratascratch.com/coding/10142-no-order-customers?code_type=2)
+
+```python
+orders_feb = orders[(orders['order_date']>='2019-02-01') & (orders['order_date']<='2019-03-01')]
+
+customers[~customers['id'].isin(list(orders_feb['cust_id']))][['first_name']]
+```
+<br/>

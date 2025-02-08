@@ -197,3 +197,11 @@ pivot_df.columns = ['survived', 'first_class', 'second_class', 'third_class']
 pivot_df
 ```
 <br/>
+
+## [Second Highest Salary](https://platform.stratascratch.com/coding/9892-second-highest-salary?code_type=2)
+
+```python
+employee['rank'] = employee['salary'].rank(method = 'dense', ascending = False)
+employee[employee['rank'] == 2][['salary']]
+```
+<br/>

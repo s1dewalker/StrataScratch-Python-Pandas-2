@@ -234,3 +234,12 @@ merged_df = employee.merge(max_sal_dep, left_on = ['department', 'salary'], righ
 merged_df[['department', 'first_name', 'salary']]
 ```
 <br/>
+
+## [Highest Number Of Orders](https://platform.stratascratch.com/coding/9909-highest-number-of-orders?code_type=2)
+
+```python
+n_of_orders = orders.groupby('cust_id', as_index = False).agg(total_orders = ('total_order_cost', 'size'))
+
+n_of_orders[n_of_orders['total_orders'] == n_of_orders['total_orders'].max()][['cust_id', 'total_orders']]
+```
+<br/>

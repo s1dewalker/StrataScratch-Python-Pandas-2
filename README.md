@@ -19,7 +19,7 @@ filtered_df[['country', 'unit_id']]
 <br/>
 Notes: We can filter the merged dataframe to include only rows where the age is less than 30 and the unit_type is 'Apartment'. Finally, we can group the filtered dataframe by nationality and count the unique unit_ids.
 
-## #2. [Share of Active Users](https://platform.stratascratch.com/coding/2005-share-of-active-users?code_type=2)
+## #2. [Share of Active Users](https://platform.stratascratch.com/coding/2005-share-of-active-users?code_type=2) ⭐
 First Attempt:
 ```python
 c = fb_active_users['country'] == 'USA'
@@ -78,7 +78,7 @@ reqd_df.groupby(['video_id'], as_index = False).agg(num_unique_users = ('full_na
 Notes: Elegant coding
 <br/>
 
-## #5. [User with Most Approved Flags](https://platform.stratascratch.com/coding/2104-user-with-most-approved-flags?code_type=2)
+## #5. [User with Most Approved Flags](https://platform.stratascratch.com/coding/2104-user-with-most-approved-flags?code_type=2) ⭐
 
 ```python
 # Combine first and last names, fill missing values with empty strings
@@ -145,7 +145,7 @@ df[['business_name','business_type']]
 ```
 <br/>
 
-## #9. [Processed Ticket Rate By Type](https://platform.stratascratch.com/coding/9781-find-the-rate-of-processed-tickets-for-each-type?code_type=2)
+## #9. [Processed Ticket Rate By Type](https://platform.stratascratch.com/coding/9781-find-the-rate-of-processed-tickets-for-each-type?code_type=2) ⭐
 First Attempt:
 ```python
 total = facebook_complaints.groupby('type', as_index = False).agg(total = ('processed', 'size'))
@@ -321,7 +321,7 @@ reqd_df[reqd_df['consumption'] == reqd_df['consumption'].max()]
 ```
 <br/>
 
-## #22. [Find the percentage of shipable orders](https://platform.stratascratch.com/coding/10090-find-the-percentage-of-shipable-orders?code_type=2)
+## #22. [Find the percentage of shipable orders](https://platform.stratascratch.com/coding/10090-find-the-percentage-of-shipable-orders?code_type=2) ⭐
 
 ```python
 shipable_cust = customers.dropna(subset = 'address')

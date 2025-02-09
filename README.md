@@ -19,7 +19,7 @@ filtered_df[['country', 'unit_id']]
 <br/>
 Notes: We can filter the merged dataframe to include only rows where the age is less than 30 and the unit_type is 'Apartment'. Finally, we can group the filtered dataframe by nationality and count the unique unit_ids.
 
-## #2. [Share of Active Users](https://platform.stratascratch.com/coding/2005-share-of-active-users?code_type=2) ⭐
+## #2. [Share of Active Users](https://platform.stratascratch.com/coding/2005-share-of-active-users?code_type=2) 🎁
 First Attempt:
 ```python
 c = fb_active_users['country'] == 'USA'

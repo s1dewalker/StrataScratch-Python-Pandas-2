@@ -63,7 +63,7 @@ Notes: we need to calculate the vote value for each voter. <br/>
 We can do this by applying a lambda function to the 'voter' column. The lambda function divides 1 by the total number of times the voter appears in the DataFrame
 <br/>
 
-## #4. [Flags per Video](https://platform.stratascratch.com/coding/2102-flags-per-video?code_type=2)
+## #4. [Flags per Video](https://platform.stratascratch.com/coding/2102-flags-per-video?code_type=2) ⭐
 
 ```python
 # Combine first and last names, fill missing values with empty strings
@@ -78,7 +78,7 @@ reqd_df.groupby(['video_id'], as_index = False).agg(num_unique_users = ('full_na
 Notes: Elegant coding
 <br/>
 
-## #5. [User with Most Approved Flags](https://platform.stratascratch.com/coding/2104-user-with-most-approved-flags?code_type=2) ⭐
+## #5. [User with Most Approved Flags](https://platform.stratascratch.com/coding/2104-user-with-most-approved-flags?code_type=2) 
 
 ```python
 # Combine first and last names, fill missing values with empty strings

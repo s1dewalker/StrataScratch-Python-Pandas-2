@@ -333,6 +333,8 @@ shipable_orders = orders[orders['cust_id'].isin(ids_shipable)]
 pct_shipable_orders = shipable_orders.shape[0] * 100 / orders.shape[0]
 ```
 <br/>
+Notes: `ids_shipable = shipable_cust['id']` : storing shipable customers ids in a pandas Series. <br/>
+`orders['cust_id'].isin(ids_shipable)` : Filtering condition for 'orders' to keep only rows where 'cust_id' exists in ids_shipable
 
 ## #23. [No Order Customers](https://platform.stratascratch.com/coding/10142-no-order-customers?code_type=2)
 

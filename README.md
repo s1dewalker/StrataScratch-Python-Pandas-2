@@ -60,7 +60,9 @@ final_df[(final_df['value'] == final_df['value'].max())][['candidate']]
 ```
 
 Notes: we need to calculate the vote value for each voter. <br/>
-We can do this by applying a lambda function to the 'voter' column. The lambda function divides 1 by the total number of times the voter appears in the DataFrame
+We can do this by applying a lambda function to the 'voter' column. The lambda function divides 1 by the total number of times the voter appears in the DataFrame <br/>
+
+🏷️: Lambda (λ)
 <br/>
 
 ## #4. [Flags per Video](https://platform.stratascratch.com/coding/2102-flags-per-video?code_type=2) ⭐

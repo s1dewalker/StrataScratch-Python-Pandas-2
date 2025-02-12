@@ -175,7 +175,7 @@ Notes: **`transform` is `apply` for grouped df.** <br/>
 `transform`: Applies a function to each group and returns a result with the same shape as the original group.<br/>
 Elegant coding. <br/>
 
-🏷️: Lambda (λ)
+🏷️: Lambda (λ) | transform
 
 ## #10. [Customer Revenue In March](https://platform.stratascratch.com/coding/9782-customer-revenue-in-march?code_type=2)
 
